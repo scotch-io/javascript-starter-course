@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <!-- add bootstrap and css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- 🔥🔥🔥🔥🔥🔥 start the javascript 🔥🔥🔥🔥🔥🔥 -->
+  <script>
+    let a   = 10;
+    let b   = 3;
+    let c   = 15;
+    const d = '5';
+    let e   = 'my name';
+    const f = 'is chris';
+
+    console.group('Addition');
+      console.log(a + b); // 13
+      console.log(a + d); // 105
+      console.log(e + ' ' + f);
+      console.log(e += ' is the batman');
+    console.groupEnd();
+
+    console.group('Multiplication');
+      console.log(a * 3); // 30
+      console.log(a * b); // 30
+      console.log(b * c); // 45
+    console.groupEnd();
+
+    a++;
+    b--;
+    --b;
+    c += a;
+    console.group('Incrementing');
+      console.log(a); // 11    
+      console.log(b); // 1
+      console.log(c); // 25
+    console.groupEnd();
+    
+  </script>
+</body>
+</html>

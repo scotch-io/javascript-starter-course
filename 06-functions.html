@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body { padding: 30px; }
+  </style>
+</head>
+<body>
+
+  <div class="jumbotron text-center">
+    <button type="button" class="btn btn-danger" onclick="saySomething('this is the first button')">
+      My Button
+    </button>
+    <button type="button" class="btn btn-danger" onclick="saySomething('this is the second button')">
+      My 2nd Button
+    </button>
+  </div>
+
+  <!-- 🔥🔥🔥🔥 start javascript 🔥🔥🔥🔥 -->
+  <script>
+    
+
+    function saySomething(message = 'goodbye', whisper = false) {
+      if (whisper) {
+        console.log(`%c${message}`, 'font-size:5px');
+      } else {
+        console.log(message);
+      }
+    }
+
+    saySomething('hello', true);
+    saySomething('my name is chris', true);
+    saySomething();
+
+    // function squared(a) {
+    //   return a * a;
+    // }
+
+    // const newSquared = squared(3);
+    // console.log(newSquared);
+    
+    const squared = (a) => {
+      return a * a;
+    }
+    const otherSquared = squared;
+
+    punch();
+
+    function punch() {
+      console.log('punch here!');
+    }
+  </script>
+</body>
+</html>

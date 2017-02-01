@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body, .jumbotron { padding: 30px; }
+    body    {
+      background-image: url('img/meadow.jpeg');
+      background-size: cover;
+    }
+    .floater  {
+      background: #FFF;
+      font-size: 19px;
+      line-height: 1.5;
+      border-radius: 5px;
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4) all;
+    }
+    .floater input[type=text] {
+      padding: 30px 20px;
+      border: none;
+      box-shadow: none;
+      font-size: 14px;
+      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4) all;
+    }
+    .floater-bottom   {
+      padding: 6px 10px 8px;
+      text-align: right;
+      border-top: 1px solid #DDD;
+    }
+    .floater-bottom button {
+      padding: 4px 8px;
+      font-size: 10px;
+    }
+
+    .overlay  {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.80);
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: 0.3s ease opacity;
+    }
+
+    body.show-floater .floater {
+      transform: scale(1.1);
+    }
+    body.show-floater .floater input[type=text] {
+      padding: 50px 20px;
+      font-size: 18px;
+    }
+    body.show-floater .overlay {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <div class="floater">
+    <div class="floater-top">
+      <input type="text" class="form-control" placeholder="What's on your mind?">
+    </div>
+    <div class="floater-bottom">
+      <button type="button" class="btn btn-primary btn-sm">Add</button>
+    </div>
+  </div>
+
+  <!-- 🔥🔥🔥🔥 start javascript 🔥🔥🔥🔥 -->
+  <script>
+    const body    = document.body;
+    const input   = document.querySelector('input[type=text]');
+    const overlay = document.querySelector('.overlay');
+
+    function showFloater() {
+      body.classList.add('show-floater');
+    }
+
+    function closeFloater() {
+      if (body.classList.contains('show-floater')) {
+        body.classList.remove('show-floater');
+      }
+    }
+
+    input.addEventListener('focusin', showFloater);
+    input.addEventListener('focusout', closeFloater);
+    overlay.addEventListener('click', closeFloater);
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body, .jumbotron { padding: 30px; }
+    .text-giant      { font-size: 40px; }
+  </style>
+</head>
+<body>
+
+  <div class="jumbotron">
+    <h2>How much do pies cost?</h2>
+
+    <form>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" name="price" value="20">
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">
+          Quantity
+          <span class="label label-primary quantity-label">1</span>
+        </label>
+        <input type="range" class="form-control" name="quantity" value="1" min="1" max="10" step="1">
+      </div>
+
+    </form>
+
+    <div class="text-right text-giant total"></div>
+
+  </div>
+
+  <!-- 🔥🔥🔥🔥 start javascript 🔥🔥🔥🔥 -->
+  <script>
+    // grab everything we need
+    const priceInput    = document.querySelector('[name=price]');
+    const quantityInput = document.querySelector('[name=quantity]');
+    const total         = document.querySelector('.total');
+    const quantityLabel = document.querySelector('.quantity-label');
+
+    // create the functions that we'll need   
+    function calculatePieCost() {
+      const price    = priceInput.value;
+      const quantity = quantityInput.value;
+      const cost     = price * quantity;
+      console.log(cost);
+      total.innerText = '$' + cost.toFixed(2);
+    }
+
+    function updateQuantityLabel() {
+      const quantity = quantityInput.value;
+      quantityLabel.innerText = quantity;
+    }
+
+    // on first run
+    calculatePieCost();
+
+    // add our event listeners     
+    priceInput.addEventListener('input', calculatePieCost);
+    quantityInput.addEventListener('input', calculatePieCost);
+    quantityInput.addEventListener('input', updateQuantityLabel);
+  </script>
+</body>
+</html>

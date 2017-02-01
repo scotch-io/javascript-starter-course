@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body { padding: 30px; }
+  </style>
+</head>
+<body>
+
+  <!-- OPTION 1 -->
+  <div class="jumbotron text-center">
+    <button class="btn btn-danger" onclick="goCoocoo()">
+      Go Coocoo      
+    </button>
+  </div>
+
+  <!-- OPTION 2: use events directly on the element in js -->
+  <div class="jumbotron text-center">
+    <button class="btn btn-danger coffee-btn">
+      Get Coffee 
+    </button>
+    <button class="btn btn-danger coffee-btn">
+      Get Coffee 
+    </button>
+    <button class="btn btn-danger coffee-btn">
+      Get Coffee 
+    </button>
+  </div>
+
+  <!-- OPTION 3: using addEventListener -->
+  <div class="jumbotron text-center">
+    <button class="btn btn-primary lala-btn">
+      Not Listening      
+    </button>
+  </div>
+
+  <!-- 🔥🔥🔥🔥 start javascript 🔥🔥🔥🔥 -->
+  <script>
+    // 1 grab elements from the dom
+    // 2 attach event listeners
+
+    function goCoocoo() {
+      document.body.style.backgroundColor = '#C00C00';
+    }
+
+    // OPTION 2 ========================================
+    const coffeeButtons = document.querySelectorAll('.coffee-btn');
+    // coffeeButton.onclick = function() {
+    //   document.body.style.backgroundColor = '#C0FFEE';
+    // }
+    // coffeeButton.onmouseenter = goCoocoo;
+
+    function getCoffee() {
+      document.body.style.backgroundColor = '#C0FFEE';
+    }
+
+    coffeeButtons.forEach(function(button) {
+      button.onclick = getCoffee;
+    });
+
+    // OPTION 3 =======================================
+    const lalaButton = document.querySelector('.lala-btn');
+
+    function notListening() {
+      document.body.style.backgroundColor = '#1A1A1A';
+    }
+
+    lalaButton.addEventListener('click', notListening);
+    lalaButton.addEventListener('mouseenter', goCoocoo);
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => button.addEventListener('mouseleave', notListening));
+  </script>
+</body>
+</html>

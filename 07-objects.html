@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body { padding: 30px; }
+  </style>
+</head>
+<body>
+
+  <!-- 🔥🔥🔥🔥 start javascript 🔥🔥🔥🔥 -->
+  <script>
+    const hero = {
+      name: 'Bruce Wayne',
+      alias: 'Batman',
+      catchphrase: 'To the Batcave!',
+      speak: function() {
+        return 'Attention! ' + this.catchphrase;
+      },
+      attack: function(sound) {
+        // return '(punches bad guy) ' + sound;
+        return `(punches bad guy) ${sound}`;
+      }
+    };
+
+    // access a property
+    const thingToLookFor = 'alias';
+
+    console.log(hero.name); // Bruce Wayne
+    console.log(hero['name']); // Bruce Wayne
+    console.log(hero[thingToLookFor]); // Batman
+
+    // accessing methods (functions)
+    console.log(hero.speak);
+    console.log(hero.speak());
+    console.log(hero.attack('POWWWWW'));
+
+    'this is my string'.toUpperCase();
+  </script>
+</body>
+</html>

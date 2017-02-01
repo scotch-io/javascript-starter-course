@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body { padding: 30px; }
+  </style>
+</head>
+<body>
+
+  <!-- 🔥🔥🔥🔥 start javascript 🔥🔥🔥🔥 -->
+  <script>
+    const original = 'chris';
+    const clone    = 'CHRIS';
+
+    console.groupCollapsed('String');
+      console.log(original == 'chris'); // true
+      console.log(original == clone); // false
+      console.log(original == clone.toLowerCase()); // true
+    console.groupEnd();
+
+    const num1 = 10;
+    const num2 = '10';
+
+    console.groupCollapsed('Numbers');
+      console.log(num1 == num2); // true 
+      console.log(num1 === num2); // false
+      console.log(num1 != num2); // false
+      console.log(num1 !== num2); // true
+    console.groupEnd();
+
+    let what; // undefined
+    let thing = null; 
+
+    console.groupCollapsed('Booleans');
+      console.log(Boolean(what)); // false
+      console.log(Boolean(thing)); // false
+      console.log(Boolean(num1)); // true
+      console.log(Boolean(num2)); // true
+      console.log(Boolean({})); // true
+      console.log(Boolean([])); // true
+    console.groupEnd(); 
+
+    const firstArr  = [1, 2, 3];
+    const secondArr = [1, 2, 3];
+    const firstObj  = { color: 'red' };
+    const secondObj = { color: 'red' };
+
+    console.groupCollapsed('Objects and Arrays');
+      console.log(firstArr === secondArr);
+      console.log(firstObj === secondObj);
+    console.groupEnd();
+
+    console.group('And Or');
+      console.log(Boolean('blah') && Boolean('thing')); // true
+      console.log(Boolean('blah') && Boolean('')); // false
+      console.log(Boolean('blah') || Boolean('')); // true
+      console.log(Boolean('') || Boolean('')); // false
+    console.groupEnd();
+  </script>
+</body>
+</html>

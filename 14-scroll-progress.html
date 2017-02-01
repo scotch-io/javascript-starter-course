@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Getting Started with JavaScript</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body, .jumbotron { padding: 30px; }
+    body      {
+      background: #EFEFEF;
+    }
+    .content  {
+      background: #FFF;
+      padding: 50px;
+      font-size: 19px;
+      line-height: 1.5;
+      min-height: 3000px;
+    }
+    .scroll-line  {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 8px;
+      background: #1CE;
+      transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) width;
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-line"></div>
+
+  <div class="container">
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis ex ducimus iusto harum, dignissimos aut temporibus facere eligendi debitis veniam, voluptatibus sunt distinctio animi at quam! Cumque minus labore ea?
+    </div>
+  </div>
+
+  <!-- 🔥🔥🔥🔥 start javascript 🔥🔥🔥🔥 -->
+  <script>
+    const scrollLine = document.querySelector('.scroll-line');
+
+    function fillScrollLine() {
+      const windowHeight    = window.innerHeight;
+      const fullHeight      = document.body.clientHeight;
+      const scrolled        = window.scrollY;
+      const percentScrolled = (scrolled / (fullHeight - windowHeight)) * 100;
+
+      scrollLine.style.width = `${percentScrolled}%`;
+    }
+
+    window.addEventListener('scroll', debounce(fillScrollLine));
+
+    function debounce(func, wait = 15, immediate) {
+      var timeout;
+      return function() {
+        var context = this, args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    }
+  </script>
+</body>
+</html>
